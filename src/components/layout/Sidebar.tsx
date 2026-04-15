@@ -36,13 +36,12 @@ const groups: Group[] = [
     items: [
       { label: 'Tração', to: '/barras/tracao', icon: <IconTracao /> },
       { label: 'Compressão', to: '/barras/compressao', icon: <IconCompressao /> },
-      { label: 'Flexão', to: '/barras/flexao', icon: <IconFlexao />, soon: true },
-      { label: 'Cisalhamento', to: '/barras/cisalhamento', icon: <IconCisalhamento />, soon: true },
+      { label: 'Flexão', to: '/barras/flexao', icon: <IconFlexao /> },
+      { label: 'Cisalhamento', to: '/barras/cisalhamento', icon: <IconCisalhamento /> },
       {
         label: 'Flexo-compressão',
         to: '/barras/flexo-compressao',
         icon: <IconFlexoCompressao />,
-        soon: true,
       },
       { label: 'Torção', to: '/barras/torcao', icon: <IconTorcao />, soon: true },
     ],

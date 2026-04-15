@@ -45,8 +45,9 @@ const modules: ModuleCard[] = [
   {
     title: 'Flexão',
     to: '/barras/flexao',
-    desc: 'Momento resistente plástico, FLT, Cb, perfis compactos e esbeltos.',
+    desc: 'Momento resistente plástico, FLT, FLM, FLA, Cb.',
     icon: <IconFlexao />,
+    ready: true,
     group: 'Barras',
   },
   {
@@ -54,6 +55,7 @@ const modules: ModuleCard[] = [
     to: '/barras/cisalhamento',
     desc: 'Verificação da alma, flambagem e enrijecedores transversais.',
     icon: <IconCisalhamento />,
+    ready: true,
     group: 'Barras',
   },
   {
@@ -61,6 +63,7 @@ const modules: ModuleCard[] = [
     to: '/barras/flexo-compressao',
     desc: 'Interação biaxial segundo §5.5 da NBR 8800.',
     icon: <IconFlexoCompressao />,
+    ready: true,
     group: 'Barras',
   },
   {
@@ -126,12 +129,15 @@ export default function HomePage() {
             em qualquer dispositivo.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link to="/barras/tracao" className="btn-primary">
-              Começar pela Tração
+            <Link to="/barras/flexao" className="btn-primary">
+              Começar pela Flexão
               <IconChevron width={16} height={16} />
             </Link>
             <Link to="/barras/compressao" className="btn-ghost">
               Compressão
+            </Link>
+            <Link to="/barras/flexo-compressao" className="btn-ghost">
+              Flexo-compressão
             </Link>
           </div>
           <div className="mt-8 flex flex-wrap gap-2 text-[11px]">
