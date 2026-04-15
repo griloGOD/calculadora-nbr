@@ -6,6 +6,7 @@ import UtilizationBar from '@/components/ui/UtilizationBar'
 import ResultCard from '@/components/ui/ResultCard'
 import FormulaBlock from '@/components/ui/FormulaBlock'
 import ProfileSVG from '@/components/ui/ProfileSVG'
+import SaveToMemorialButton from '@/components/ui/SaveToMemorialButton'
 import { ACOS, getAco } from '@/catalogo/materiais'
 import { PERFIS_W, getPerfil } from '@/catalogo/perfis'
 import { calcularCisalhamento } from '@/calculos/nbr8800/cisalhamento'
@@ -154,6 +155,24 @@ export default function CisalhamentoPage() {
             digits={1}
             hint={`λ = ${fmt(resultado.lambda)} · regime ${resultado.regime}`}
             tone="accent"
+          />
+
+          <SaveToMemorialButton
+            snapshot={{
+              modulo: 'Cisalhamento',
+              titulo: `${perfil.designacao} · ${aco.norma}${aco.grau !== '—' ? ' ' + aco.grau : ''}`,
+              referencia: resultado.referencia,
+              status: resultado.status,
+              utilizacao: resultado.utilizacao,
+              resumo: [
+                { rotulo: 'V_Rd', valor: fmtKN(resultado.VRd, 1) },
+                { rotulo: 'V_Sd', valor: fmtKN(VSd, 1) },
+                { rotulo: 'A_w', valor: `${fmt(resultado.Aw)} cm²` },
+                { rotulo: 'λ', valor: fmt(resultado.lambda) },
+                { rotulo: 'Regime', valor: resultado.regime },
+              ],
+              passos: resultado.passos,
+            }}
           />
 
           <div className="card p-4">

@@ -6,6 +6,7 @@ import UtilizationBar from '@/components/ui/UtilizationBar'
 import ResultCard from '@/components/ui/ResultCard'
 import FormulaBlock from '@/components/ui/FormulaBlock'
 import ProfileSVG from '@/components/ui/ProfileSVG'
+import SaveToMemorialButton from '@/components/ui/SaveToMemorialButton'
 import { ACOS, getAco } from '@/catalogo/materiais'
 import { PERFIS_W, getPerfil } from '@/catalogo/perfis'
 import { calcularCompressao } from '@/calculos/nbr8800/compressao'
@@ -198,6 +199,25 @@ export default function FlexoCompressaoPage() {
             digits={3}
             hint={`Caso ${interacao.caso === 'alta' ? 'N_Sd/N_Rd ≥ 0,2' : 'N_Sd/N_Rd < 0,2'}`}
             tone="accent"
+          />
+
+          <SaveToMemorialButton
+            snapshot={{
+              modulo: 'Flexo-compressão',
+              titulo: `${perfil.designacao} · ${aco.norma}${aco.grau !== '—' ? ' ' + aco.grau : ''}`,
+              referencia: interacao.referencia,
+              status: interacao.status,
+              utilizacao: interacao.utilizacao,
+              resumo: [
+                { rotulo: 'N_c,Rd', valor: fmtKN(compressao.NcRd, 1) },
+                { rotulo: 'M_x,Rd', valor: `${fmt(flexaoX.MRd, 2)} kN·m` },
+                { rotulo: 'M_y,Rd', valor: `${fmt(MyRd, 2)} kN·m` },
+                { rotulo: 'N_Sd', valor: fmtKN(NSd, 1) },
+                { rotulo: 'M_x,Sd', valor: `${fmt(MxSd, 2)} kN·m` },
+                { rotulo: 'M_y,Sd', valor: `${fmt(MySd, 2)} kN·m` },
+              ],
+              passos: interacao.passos,
+            }}
           />
 
           <div className="card p-4">

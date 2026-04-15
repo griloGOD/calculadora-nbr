@@ -6,6 +6,7 @@ import UtilizationBar from '@/components/ui/UtilizationBar'
 import ResultCard from '@/components/ui/ResultCard'
 import FormulaBlock from '@/components/ui/FormulaBlock'
 import ProfileSVG from '@/components/ui/ProfileSVG'
+import SaveToMemorialButton from '@/components/ui/SaveToMemorialButton'
 import { ACOS, getAco } from '@/catalogo/materiais'
 import { PERFIS_W, getPerfil } from '@/catalogo/perfis'
 import { calcularTracao } from '@/calculos/nbr8800/tracao'
@@ -206,6 +207,26 @@ export default function TracaoPage() {
             digits={1}
             hint={`Estado-limite governante: ${govLabel}`}
             tone="accent"
+          />
+
+          <SaveToMemorialButton
+            snapshot={{
+              modulo: 'Tração',
+              titulo: `${perfil.designacao} · ${aco.norma}${aco.grau !== '—' ? ' ' + aco.grau : ''} · L = —`,
+              referencia: 'NBR 8800:2008 §5.2',
+              status: resultado.status,
+              utilizacao: resultado.utilizacao,
+              resumo: [
+                { rotulo: 'N_t,Rd', valor: fmtKN(resultado.NtRd, 1) },
+                { rotulo: 'N_Sd', valor: fmtKN(Nsd, 1) },
+                { rotulo: 'Governante', valor: govLabel },
+                { rotulo: 'Perfil', valor: perfil.designacao },
+              ],
+              passos: [
+                ...resultado.escoamento.passos,
+                ...resultado.ruptura.passos,
+              ],
+            }}
           />
 
           <div className="card p-4">

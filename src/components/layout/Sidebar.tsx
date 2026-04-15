@@ -49,14 +49,14 @@ const groups: Group[] = [
   {
     title: 'Ligações & Chapas',
     items: [
-      { label: 'Parafusos', to: '/parafusos', icon: <IconParafuso />, soon: true },
-      { label: 'Soldas', to: '/soldas', icon: <IconSolda />, soon: true },
+      { label: 'Parafusos', to: '/parafusos', icon: <IconParafuso /> },
+      { label: 'Soldas', to: '/soldas', icon: <IconSolda /> },
       { label: 'Chapas e Compostos', to: '/chapas', icon: <IconChapa />, soon: true },
     ],
   },
   {
     title: 'Saída',
-    items: [{ label: 'Memória de Cálculo', to: '/relatorio', icon: <IconRelatorio />, soon: true }],
+    items: [{ label: 'Memória de Cálculo', to: '/relatorio', icon: <IconRelatorio /> }],
   },
 ]
 

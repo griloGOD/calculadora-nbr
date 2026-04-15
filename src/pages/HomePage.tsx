@@ -78,13 +78,15 @@ const modules: ModuleCard[] = [
     to: '/parafusos',
     desc: 'Ligações por apoio e por atrito (HSFG).',
     icon: <IconParafuso />,
+    ready: true,
     group: 'Ligações',
   },
   {
     title: 'Soldas',
     to: '/soldas',
-    desc: 'Solda de filete e penetração parcial ou total.',
+    desc: 'Solda de filete: metal da solda e metal base.',
     icon: <IconSolda />,
+    ready: true,
     group: 'Ligações',
   },
   {
@@ -97,8 +99,9 @@ const modules: ModuleCard[] = [
   {
     title: 'Memória de Cálculo',
     to: '/relatorio',
-    desc: 'Geração de PDF com equações, valores intermediários e referências.',
+    desc: 'Memorial consolidado dos cálculos com impressão para PDF.',
     icon: <IconRelatorio />,
+    ready: true,
     group: 'Saída',
   },
 ]

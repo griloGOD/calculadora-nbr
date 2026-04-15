@@ -6,6 +6,7 @@ import UtilizationBar from '@/components/ui/UtilizationBar'
 import ResultCard from '@/components/ui/ResultCard'
 import FormulaBlock from '@/components/ui/FormulaBlock'
 import ProfileSVG from '@/components/ui/ProfileSVG'
+import SaveToMemorialButton from '@/components/ui/SaveToMemorialButton'
 import { ACOS, getAco } from '@/catalogo/materiais'
 import { PERFIS_W, getPerfil } from '@/catalogo/perfis'
 import { calcularCompressao } from '@/calculos/nbr8800/compressao'
@@ -200,6 +201,24 @@ export default function CompressaoPage() {
             digits={1}
             hint={`Eixo governante: ${resultado.eixoGovernante.toUpperCase()} · χ = ${fmt(resultado.chi, 4)}`}
             tone="accent"
+          />
+
+          <SaveToMemorialButton
+            snapshot={{
+              modulo: 'Compressão',
+              titulo: `${perfil.designacao} · ${aco.norma}${aco.grau !== '—' ? ' ' + aco.grau : ''} · L = ${Lx} cm`,
+              referencia: resultado.referencia,
+              status: resultado.status,
+              utilizacao: resultado.utilizacao,
+              resumo: [
+                { rotulo: 'N_c,Rd', valor: fmtKN(resultado.NcRd, 1) },
+                { rotulo: 'N_Sd', valor: fmtKN(Nsd, 1) },
+                { rotulo: 'λ₀', valor: fmt(resultado.lambda0, 3) },
+                { rotulo: 'χ', valor: fmt(resultado.chi, 4) },
+                { rotulo: 'Eixo gov.', valor: resultado.eixoGovernante.toUpperCase() },
+              ],
+              passos: resultado.passos,
+            }}
           />
 
           <div className="card p-4">

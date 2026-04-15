@@ -6,6 +6,9 @@ import CompressaoPage from './pages/CompressaoPage'
 import FlexaoPage from './pages/FlexaoPage'
 import CisalhamentoPage from './pages/CisalhamentoPage'
 import FlexoCompressaoPage from './pages/FlexoCompressaoPage'
+import ParafusosPage from './pages/ParafusosPage'
+import SoldasPage from './pages/SoldasPage'
+import RelatorioPage from './pages/RelatorioPage'
 import ComingSoonPage from './pages/ComingSoonPage'
 
 export default function App() {
@@ -19,10 +22,10 @@ export default function App() {
         <Route path="/barras/cisalhamento" element={<CisalhamentoPage />} />
         <Route path="/barras/flexo-compressao" element={<FlexoCompressaoPage />} />
         <Route path="/barras/torcao" element={<ComingSoonPage title="Torção" />} />
-        <Route path="/parafusos" element={<ComingSoonPage title="Parafusos" />} />
-        <Route path="/soldas" element={<ComingSoonPage title="Soldas" />} />
+        <Route path="/parafusos" element={<ParafusosPage />} />
+        <Route path="/soldas" element={<SoldasPage />} />
         <Route path="/chapas" element={<ComingSoonPage title="Chapas e Compostos" />} />
-        <Route path="/relatorio" element={<ComingSoonPage title="Memória de Cálculo" />} />
+        <Route path="/relatorio" element={<RelatorioPage />} />
       </Routes>
     </AppShell>
   )

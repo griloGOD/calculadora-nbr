@@ -6,6 +6,7 @@ import UtilizationBar from '@/components/ui/UtilizationBar'
 import ResultCard from '@/components/ui/ResultCard'
 import FormulaBlock from '@/components/ui/FormulaBlock'
 import ProfileSVG from '@/components/ui/ProfileSVG'
+import SaveToMemorialButton from '@/components/ui/SaveToMemorialButton'
 import { ACOS, getAco } from '@/catalogo/materiais'
 import { PERFIS_W, getPerfil } from '@/catalogo/perfis'
 import { calcularFlexao } from '@/calculos/nbr8800/flexao'
@@ -192,6 +193,27 @@ export default function FlexaoPage() {
             digits={2}
             hint={`Governante: ${resultado.governante} · C_b = ${fmt(resultado.Cb)}`}
             tone="accent"
+          />
+
+          <SaveToMemorialButton
+            snapshot={{
+              modulo: 'Flexão',
+              titulo: `${perfil.designacao} · ${aco.norma}${aco.grau !== '—' ? ' ' + aco.grau : ''} · L_b = ${Lb} cm`,
+              referencia: resultado.referencia,
+              status: resultado.status,
+              utilizacao: resultado.utilizacao,
+              resumo: [
+                { rotulo: 'M_Rd', valor: `${fmt(resultado.MRd, 2)} kN·m` },
+                { rotulo: 'M_Sd', valor: `${fmt(MSd, 2)} kN·m` },
+                { rotulo: 'Governante', valor: resultado.governante },
+                { rotulo: 'C_b', valor: fmt(resultado.Cb) },
+              ],
+              passos: [
+                ...resultado.estados.flt.passos,
+                ...resultado.estados.flm.passos,
+                ...resultado.estados.fla.passos,
+              ],
+            }}
           />
 
           <div className="card p-4">
